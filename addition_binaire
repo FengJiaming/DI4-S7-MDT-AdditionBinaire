@@ -1,0 +1,78 @@
+#machine à addition binaire
+#
+#symbole pour le blanc
+B
+
+#quadruplets
+q0IXq1 #X : pour stocker un chiffre
+q0OXq2
+
+q1XGq1	#q1 : no.1 1er is I
+q2XGq2	#q2 : no.2 1er is O
+
+q1OGq1	#move to the right
+q1IGq1		
+q2OGq2	
+q2IGq2
+
+q1BGq3	#move to the no.2
+q2BGq4	
+
+q3BGq3 #si il y plusieurs B entre les nombres
+q4BGq4
+
+q3IBq5 #q5 : no.1 1er is I;no.2 1er is I
+q3OBq6 #q6 : no.1 1er is I;no.2 1er is O
+q4IBq7 #q7 : no.1 1er is O;no.2 1er is I
+q4OBq8 #q8 : no.1 1er is O;no.2 1er is O
+
+q5BDq5 #move to the no.1
+q6BDq6
+q7BDq7
+q8BDq8
+
+q5IDq5 #move to the left
+q5ODq5
+q6IDq6
+q6ODq6
+q7IDq7
+q7ODq7
+q8IDq8
+q8ODq8
+
+q5XOq9 #q9 : plus 1
+q6XIq10 #q10 : pas plus 1
+q7XIq10
+q8XOq10
+
+q9OGq11 #q11 : =0 et plus 1
+q9IGq11
+
+q11OYq2 #Y : need to +1(Y pour stocker un chiffre qui a un retenue).
+q11IYq1
+
+q10OGq0
+q10IGq0
+
+
+q1YGq1 
+q2YGq2
+
+q5YIq9 #q5+Y : (I+I)+I
+q6YOq9 #q6+Y : (I+O)+I
+q7YOq9 #q7+Y : (O+I)+I
+q8YIq10 #q8+Y : (O+O)+I
+
+q11BIq12 #if we need one more caracter
+
+
+#description instantannee initiale
+#état initial : q0 (devant le symbole du ruban sur lequel est placé la tête de L/E
+#attention il faut au moins un symbole devant l'etat initial
+
+Bq0IOIOIBIOIIIB
+#BBq0IOIIOOIIIIBIIOIOOIOIOBBB
+
+#Bq0IOOOIBOOIIOB
+#Bq0OOOOBIIOOBB
+#Bq0IIIIIBIIIIIBB
